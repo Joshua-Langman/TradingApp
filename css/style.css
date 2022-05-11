@@ -1,0 +1,55 @@
+body{
+    background-color: #31a9e0;
+    animation: color 10s infinite linear alternate;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* body{
+    display: flex;
+} */
+
+section{
+    display: flex;
+    gap: 1%;
+    justify-content: center
+}
+
+select{
+    background-color: cyan;
+}
+
+button{
+    flex-grow: 1 20%;
+}
+
+@keyframes color{
+    0% {background-color: #4dd6cf;}
+    20% {background-color: #3bbdd4;}
+    40% {background-color: #2ca7db;}
+    60% {background-color: #216fdb;}
+    80% {background-color: #1b49c4;}
+    100% {background-color: #1714c7;}
+}
+
+@-webkit-keyframes color{
+    0% {background-color: #4dd6cf;}
+    20% {background-color: #3bbdd4;}
+    40% {background-color: #2ca7db;}
+    60% {background-color: #216fdb;}
+    80% {background-color: #1b49c4;}
+    100% {background-color: #1714c7;}
+}
+
+
+@-moz-keyframes color{
+    0% {background-color: #4dd6cf;}
+    20% {background-color: #3bbdd4;}
+    40% {background-color: #2ca7db;}
+    60% {background-color: #216fdb;}
+    80% {background-color: #1b49c4;}
+    100% {background-color: #1714c7;}
+}
