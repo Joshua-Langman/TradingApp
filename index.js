@@ -3,9 +3,9 @@ const app = express();
 const firebase = require('firebase/app')
 const firebaseAuth = require('firebase/auth')
 const bodyParser = require('body-parser')
-const cors = require('cors');
 const { request } = require('express');
-const port = 8080;
+const { PORT } = require('./config');
+const cors = require('cors');
 
 app.use(cors()); //Allows cross origin scripting for our app.
 app.use(express.static(__dirname + '/public'));
@@ -132,4 +132,6 @@ app.post("/registerError.html", (req, res) => {
         })
 })
 
-app.listen(port);
+app.listen(PORT, () => {
+    console.log(`Web application ready @ http://localhost:${PORT}`);
+});
