@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const config = require('./config');
+const { PORT } = require('./config');
 const cors = require('cors');
 
 app.use(cors()); //Allows cross origin scripting for our app.
@@ -17,6 +17,6 @@ app.get("/trading", (req, res) => {
     res.redirect('/trading.html');
 });
 
-app.listen(config.PORT, () => {
-    console.log(`Web application ready @ http://localhost:${config.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Web application ready @ http://localhost:${PORT}`);
 });
