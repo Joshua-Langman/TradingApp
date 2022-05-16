@@ -1,21 +1,20 @@
-// var theme="dark2";
-var fontColor="#c5c5c5";
-var backgroundColor="#3b3b3b";
-var lineColor="#c5c5c5";
-var fontFamily="Helvetica, sans-serif";
+const fontColor="#c5c5c5";
+const backgroundColor="#3b3b3b";
+const lineColor="#c5c5c5";
+const fontFamily="Helvetica, sans-serif";
 
-var title={
+const title={
     text: "IBM Stock Prices for June & July 2014",
     fontColor:fontColor,
     fontFamily:fontFamily
 };
 
-var toolTip= {
+const toolTip= {
     fontColor:fontColor,
     backgroundColor:backgroundColor,
 };
 
-var axisY= {
+const axisY= {
     crosshair:{
         enabled:true
     },
@@ -29,7 +28,7 @@ var axisY= {
     titleFontColor:fontColor
 };
 
-var axisX= {
+const axisX= {
     crosshair:{
         enabled:true
     },
@@ -44,7 +43,7 @@ var axisX= {
     titleFontColor:fontColor
 };
 
-var data= [
+const data= [
     {
         type: "candlestick",
         risingColor:"green",
@@ -98,7 +97,6 @@ var data= [
 ];
 
 const config={
-    // theme:theme,
     title:title,
     toolTip,
     backgroundColor: "#3b3b3b",
