@@ -1,0 +1,92 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: Helvetica, sans-serif;
+}
+
+/*START of nav bar styling*/
+nav{
+    background-color:#3b3b3b;
+    height: 3rem;
+    width: 100%;
+}
+
+ul{
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    gap: 4%;
+    background-color:#3b3b3b;
+    width: 20%;
+    height: 100%;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem 0 1rem;
+    background-color: #3b3b3b;
+}
+
+li>a{
+    /* gap: 2%; */
+    color:#c5c5c5;
+    text-decoration: none;
+}
+
+li:hover{
+    background-color: #292929;
+}
+/* END of nav bar styling */
+
+section{
+    display: flex;
+    justify-content: center;
+}
+
+section:nth-of-type(1){
+    gap: 1%;
+    padding: 1rem;
+}
+
+section:nth-of-type(2){
+    margin: 1%;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    text-align: center;
+
+  }
+
+section>section{
+    position: relative;
+}
+
+section>section::after{
+    content: "▼";
+    font-size: 1rem;    
+    position: absolute;
+    left: 9rem;
+    top: 2rem;
+}
+
+
+#chart-container{
+    height: 40rem;
+    width: 80%;
+}
+
+select{
+    cursor: pointer;
+    background-color: #3b3b3b;
+    color:#c5c5c5;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    width: 10rem;
+    height: 3em;
+}
+
