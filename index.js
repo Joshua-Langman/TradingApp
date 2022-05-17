@@ -53,6 +53,10 @@ app.get("/register", (req, res) => {
     res.redirect('/register.html')
 })
 
+app.get("/chart", (req, res) => {
+    res.redirect('/chart.html')
+})
+
 // User account is:
 //username brandons@bbd.co.za
 //password testpassword
@@ -65,7 +69,7 @@ app.post("/login.html", (req, res) => {
             Authenticated = true;
             var user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/trading.html')
+            res.redirect('/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
@@ -85,7 +89,7 @@ app.post("/loginError.html", (req, res) => {
             var user = userCredentials.user;
             Authenticated = true;
             userAccessToken = user.accessToken;
-            res.redirect('/trading.html')
+            res.redirect('/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
@@ -105,7 +109,7 @@ app.post("/register.html", (req, res) => {
             Authenticated = true;
             const user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/trading.html')
+            res.redirect('/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
@@ -125,7 +129,7 @@ app.post("/registerError.html", (req, res) => {
             Authenticated = true;
             const user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/trading.html')
+            res.redirect('/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
