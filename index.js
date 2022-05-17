@@ -137,31 +137,7 @@ app.post("/registerError.html", (req, res) => {
 })
 
 app.get('/quote', (req, res) => {
-    res.render('/quote.html', {var: "myvar"})
-    // res.redirect('/quote.html')
-})
-
-app.get('/data', (req, res) => {
-    res.send({
-        neame: " gdsdafgdg"
-    })
-    // res.redirect('/quote.html')
-})
-
-app.get("/market/pairs", (request, response) => {
-
-
-    axios.get('https://api.cryptowat.ch/markets/luno')
-    .then(res => {
-        console.log(res.data.result)
-        var pairs = res.data.result.map((item) => {
-            return item.pair;
-        })
-        response.send(pairs)
-    })
-    .catch(error => {
-        console.log(error);
-    });
+    res.redirect('/quote.html')
 })
 
 // Retrieve market pairs from cryptowatch
@@ -218,7 +194,7 @@ app.get("/market/prices", (request, response) => {
     })
     .catch(error => {
         console.log("market pairs request failed")
-        console.log(Object.keys(error));
+        // console.log(Object.keys(error));
         console.log(error.message)
     });   
 })
