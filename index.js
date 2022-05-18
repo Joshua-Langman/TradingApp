@@ -11,22 +11,7 @@ const axios = require('axios');
 
 const app = express();
 
-const corsOpts = {
-    origin: '*',
-  
-    methods: [
-      'GET',
-      'POST',
-    ],
-  
-    allowedHeaders: [
-      'Content-Type',
-    ],
-  };
-  
-  app.use(cors(corsOpts));
-
-// app.use(cors()); //Allows cross origin scripting for our app.
+app.use(cors()); //Allows cross origin scripting for our app.
 app.use(express.static(__dirname + '/public'));
 // app.use(express.static(__dirname + '/static'));
 
