@@ -19,7 +19,7 @@ const axisY= {
         enabled:true
     },
     includeZero:false,
-    prefix: "$ ",
+    // prefix: "R ",
     lineColor: lineColor,
     tickColor:lineColor,
     gridColor:lineColor,
@@ -50,7 +50,7 @@ const data= [
         fallingColor: "red",
         color:"black",
         dataPoints: [   // Y: [Open, High ,Low, Close]
-            {x: new Date(2014,05,2 ), y:[184.76, 186.28, 184.67, 185.69]},
+            {x: new Date(2014,05,2 ), y:[184.76, 186.28, 184.67, 185.69]}, //{label: CanvasJS.formatDate(new Date(), "HH:mm"),y:[5198, 5629, 5159, 5385]},
             {x: new Date(2014,05,3 ), y:[185.55, 185.76, 184.12, 184.37]},
             {x: new Date(2014,05,4 ), y:[184.71, 185.45, 184.20, 184.51]},
             {x: new Date(2014,05,5 ), y:[184.66, 186.09, 183.92, 185.98]},
@@ -110,6 +110,49 @@ const chart = new CanvasJS.Chart("chart-container", config);
 chart.render(); 
 // Styling after rendering the graph
 document.getElementById("chart-container").style.border=`0.1rem solid ${fontColor}`;
+
+//Date arithmetic
+let startDate=new Date();
+startDate.setDate(startDate.getDate()-1);
+
+//Parse date of format of new Date() as parameter
+function convertDateToUnix(cDate){
+    let seconds = Math.floor(cDate / 1000);
+    return seconds;
+}
+
+//Parse time as Unix time as parameter
+function convertUnixtoTime(cUnix){
+    cUnix*=1000;
+
+    let cDate=new Date(cUnix);
+    return cDate.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',hour12:false});
+}
+
+function updateChart(){
+
+
+        // Default options are marked with *
+        fetch("", {
+            method: 'GET', 
+
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //     // 'Content-Type': 'application/x-www-form-urlencoded',
+        //   }
+        }).then(response=>{
+            console.log(response);
+        });
+        
+
+    // const chart = new CanvasJS.Chart("chart-container", config);
+    // chart.render;
+
+    // // Styling after rendering the graph
+    // document.getElementById("chart-container").style.border=`0.1rem solid ${fontColor}`;
+}
+
+// console.log(CanvasJS.formatDate(startDate, "HH:mm"));
 
 // document.getElementById("render").addEventListener("click",()=>{
 //     console.log(config.data[0].dataPoints.shift());
