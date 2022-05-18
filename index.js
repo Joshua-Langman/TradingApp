@@ -11,7 +11,22 @@ const axios = require('axios');
 
 const app = express();
 
-app.use(cors()); //Allows cross origin scripting for our app.
+const corsOpts = {
+    origin: '*',
+  
+    methods: [
+      'GET',
+      'POST',
+    ],
+  
+    allowedHeaders: [
+      'Content-Type',
+    ],
+  };
+  
+  app.use(cors(corsOpts));
+
+// app.use(cors()); //Allows cross origin scripting for our app.
 app.use(express.static(__dirname + '/public'));
 // app.use(express.static(__dirname + '/static'));
 
@@ -160,6 +175,7 @@ app.get("/market/pairs", (request, response) => {
 })
 
 var pairs = new Object();
+
 function pushToPairs(key, value){
     pairs[key] = value
     // console.log(pairs)
@@ -202,6 +218,27 @@ app.get("/market/prices", (request, response) => {
         console.log(error.message)
     });   
 })
+
+app.get("/market/candles", (request, response) => {
+
+    const baseUrl="https://api.cryptowat.ch/markets/";
+    const exchange=request.query.exchange;
+    const pair=request.query.pair;
+    const after=request.query.after;
+    const periods=request.query.periods;
+
+    axios.get(`${baseUrl}${exchange}/${pair}/ohlc?after=${after}&periods=${periods}`)
+    .then(res => {
+        response.send(res.data.result);
+    })
+    .catch(error => {
+        console.log("candles request failed")
+        // console.log(Object.keys(error));
+        console.log(error.message)
+    });   
+});
+
+
 
 app.listen(PORT, () => {
     console.log(`Web application ready @ http://localhost:${PORT}`);

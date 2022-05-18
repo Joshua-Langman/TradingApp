@@ -106,14 +106,14 @@ const config={
     data:data
 };
 
+//TODO: Add allowed pairs dict to dynamically populate the select
+
 const chart = new CanvasJS.Chart("chart-container", config);
 chart.render(); 
 // Styling after rendering the graph
 document.getElementById("chart-container").style.border=`0.1rem solid ${fontColor}`;
 
-//Date arithmetic
-let startDate=new Date();
-startDate.setDate(startDate.getDate()-1);
+
 
 //Parse date of format of new Date() as parameter
 function convertDateToUnix(cDate){
@@ -131,18 +131,33 @@ function convertUnixtoTime(cUnix){
 
 function updateChart(){
 
+    //One day back
+    let startDate=new Date();
+    startDate.setDate(startDate.getDate()-1);
+    startDate=convertDateToUnix(startDate);
 
-        // Default options are marked with *
-        fetch("", {
-            method: 'GET', 
+    //URL building
+    baseUrl="/market/candles/";//TODO: Change environment variable for cloud
 
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //     // 'Content-Type': 'application/x-www-form-urlencoded',
-        //   }
+    const paramsObject={
+        exchange:"luno",
+        pair:document.getElementById("select-pair").value,
+        after:startDate,
+        periods:3600,
+    };
+
+    const params=Object.entries(paramsObject).map(([k,v])=>{
+        return `${k}=${v}`
+    }).join("&");
+
+    if(paramsObject.pair!=="select-pair"){
+        
+        fetch(`${baseUrl}?${params}`, {
         }).then(response=>{
             console.log(response);
         });
+    }
+
         
 
     // const chart = new CanvasJS.Chart("chart-container", config);
