@@ -1,0 +1,118 @@
+nav{
+    vertical-align: top;
+    background-color:#3b3b3b;
+    height: 3rem;
+    width: 100%;
+    border-radius: 1em;
+}
+
+ul{
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    gap: 4%;
+    background-color:#3b3b3b;
+    width: 20%;
+    height: 100%;
+    border-radius: 1em;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem 0 1rem;
+    background-color:  rgb(112, 123, 124);
+    height: 3rem;
+    border-radius: 2em;
+}
+
+body{
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    background-color: rgb(9, 47, 103);
+    /* padding-top: 10em; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+    /* margin: 0em 15em 0em 20em; */
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 10em;
+    width: 40em;
+    margin-right: auto;
+    margin-left: auto;
+    padding:1em;
+    background-color:rgb(255, 255, 255);
+    border-radius: 2em;
+    box-shadow: 0 0 2em rgb(0, 0, 0)
+}
+
+h1{
+    color: rgb(9, 47, 103);
+}
+
+table{
+    width: 35em;
+    margin-right: auto;
+    margin-left: auto;
+    /* border-collapse: separate; */
+}
+
+td{
+    width: 17em;
+    text-align: center;
+}
+
+th{
+    padding-bottom: 1em;
+    color: rgb(0, 1, 3);
+    font-family: 'Montserrat', sans-serif;
+}
+
+tr {
+    border-radius: 3em;
+}
+
+.tableTitle{
+    margin-left: auto;
+    margin-right: auto;
+    width: 35em;
+    margin-bottom: 0.5em;
+    padding: 0.1em;
+    border-radius: 2em;
+    background-color: rgb( 112, 123, 124 );
+}
+
+#btn {
+    margin-top: 1em;
+    border-radius: 2em;
+    padding: 0.8em 3em 0.8em 3em;
+    border-style: none;
+    color: white;
+    background-color: rgb(9, 47, 103 );
+    font-family: 'Montserrat', sans-serif;
+}
+
+#btn:hover{
+    cursor: pointer;
+}
+
+.bar{
+    margin-left: auto;
+    margin-right: auto;
+    width: 35em;
+    margin-bottom: 0.5em;
+    padding: 0.1em;
+    border-radius: 2em;
+    background-color: rgb(  178, 186, 187  );
+}
+
+.bar:hover{
+    width: 35em;
+    border: 3px solid rgb(9, 47, 103);
+    padding: 0.5em;
+    /* font-size: larger; */
+    ;
+}
