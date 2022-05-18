@@ -25,11 +25,12 @@
     <body>
       <section><!--Make this a submit form-->
         <section>
-          <select name="stock" id="select-stock">
-            <option value="select-stock">Select stock</option>
-            <option value="EUR">EUR</option>
-            <option value="USD">USD</option>
-            <option value="GBP">GBP</option>
+          <select name="pair" id="select-pair" onchange="updateChart()">
+            <option value="select-pair">Select pair</option>
+            <option value="BTCZAR">BTCZAR</option>
+            <option value="ETHZAR">ETHZAR</option>
+            <option value="LTCZAR">LTCZAR</option>
+            <option value="XRPZAR">XRPZAR</option>
           </select>
         </section>
       </section>
@@ -40,7 +41,7 @@
     </body>
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="../chart.js"></script>
+    <script src="chart.js"></script>
     
   </main>
 
