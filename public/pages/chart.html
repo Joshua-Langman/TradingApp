@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <link rel="stylesheet" href="./css/chart.css">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/chart.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Trading App</title>
   </head>
 
@@ -14,8 +15,7 @@
       <ul>
         <li><a href="app.html">Home</a></li>
         <li><a href="chart.html">Chart</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="about.asp">About</a></li>
+        <li><a href="quote.html">Quotes</a></li>
       </ul>
     </nav>
     
@@ -23,8 +23,8 @@
 
   <main>
     <body>
-      <section><!--Make this a submit form-->
-        <section>
+      <section>
+        <form>  <!--Make this a submit form-->
           <select name="pair" id="select-pair" onchange="updateChart()">
             <option value="select-pair">Select pair</option>
             <option value="BTCZAR">BTCZAR</option>
@@ -32,7 +32,7 @@
             <option value="LTCZAR">LTCZAR</option>
             <option value="XRPZAR">XRPZAR</option>
           </select>
-        </section>
+        </form>
       </section>
       
       <section>
@@ -41,7 +41,7 @@
     </body>
 
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="chart.js"></script>
+    <script src="../js/chart.js"></script>
     
   </main>
 

@@ -37,30 +37,30 @@ var userAccessToken = null;
 var userAuthError = false;
 
 app.get("/", (req, res) => {
-    res.redirect('/login.html');
+    res.redirect('/pages/login.html');
 })
 
 app.get("/trading", (req, res) => {
     if(authorized){
-        res.redirect('/trading.html');
+        res.redirect('pages/trading.html');
     }else{
-        res.redirect('/login.html');
+        res.redirect('pages/login.html');
     }
     
 })
 
 app.get("/register", (req, res) => {
-    res.redirect('/register.html')
+    res.redirect('pages/register.html')
 })
 
 app.get("/chart", (req, res) => {
-    res.redirect('/chart.html')
+    res.redirect('pages/chart.html')
 })
 
 // User account is:
 //username brandons@bbd.co.za
 //password testpassword
-app.post("/login.html", (req, res) => {
+app.post("/pages/login.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.signInWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -76,11 +76,11 @@ app.post("/login.html", (req, res) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/loginError.html')
+            res.redirect('/pages/loginError.html')
         })
 })
 
-app.post("/loginError.html", (req, res) => {
+app.post("/pages/loginError.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.signInWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -89,18 +89,18 @@ app.post("/loginError.html", (req, res) => {
             var user = userCredentials.user;
             Authenticated = true;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/loginError.html')
+            res.redirect('/pages/loginError.html')
         })
 })
 
-app.post("/register.html", (req, res) => {
+app.post("/pages/register.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.createUserWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -109,18 +109,18 @@ app.post("/register.html", (req, res) => {
             Authenticated = true;
             const user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/registerError.html')
+            res.redirect('/pages/registerError.html')
         })
 })
 
-app.post("/registerError.html", (req, res) => {
+app.post("/pages/registerError.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.createUserWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -129,19 +129,19 @@ app.post("/registerError.html", (req, res) => {
             Authenticated = true;
             const user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/registerError.html')
+            res.redirect('/pages/registerError.html')
         })
 })
 
 app.get('/quote', (req, res) => {
-    res.redirect('/quote.html')
+    res.redirect('/pages/quote.html')
 })
 
 // Retrieve market pairs from cryptowatch
