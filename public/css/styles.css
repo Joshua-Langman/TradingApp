@@ -9,39 +9,37 @@ body{
 }
 
 /*START of nav bar styling*/
-nav{
-    background-color:#333;
+nav {
+    background-color: #3b3b3b;
     height: 3rem;
     width: 100%;
-    /* position: fixed; */
-    top: 0;
 }
 
-ul{
+nav ul {
     display: flex;
     justify-content: flex-start;
     list-style-type: none;
     gap: 4%;
-    background-color:#333;
+    background-color: #3b3b3b;
     width: 20%;
     height: 100%;
 }
 
-li{
+nav li {
     display: flex;
     align-items: center;
     height: 100%;
     padding: 0 1rem 0 1rem;
-    background-color: #333;
+    background-color: #3b3b3b;
 }
 
-li>a{
+nav li>a {
     /* gap: 2%; */
-    color:#c5c5c5;
+    color: #c5c5c5;
     text-decoration: none;
 }
 
-li:hover{
+nav li:hover {
     background-color: #292929;
 }
 /* END of nav bar styling */
