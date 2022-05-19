@@ -18,13 +18,13 @@
 /* Sidebar Section Cards */
 .main-section>.side-bar>section {
     margin-bottom: 10px;
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(37, 37, 37);
     border-radius: 10px;
     padding: 10px 20px;
+    color: white;
 }
 
 #watchlist-section {
-    color: black;
     max-height: 500px;
     overflow-y: scroll;
 }
@@ -35,10 +35,15 @@
 }
 
 #order-form {
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(37, 37, 37);
     border-radius: 10px;
     padding: 20px;
-    color: black;
+    color: white;
+}
+
+.section-header{
+    color: white;
+    font-size: 1.2rem;
 }
 
 .watch-list-item {
@@ -48,6 +53,7 @@
     border-radius: 10px;
     cursor: pointer;
     display: flex;
+    color: white;
 }
 
 .flex-fill{
@@ -59,7 +65,7 @@
 }
 
 .watch-list-item:hover:not(.selected) {
-    background-color: rgb(207, 207, 207);
+    background-color: rgba(100, 148, 237, 0.486);
 }
 
 /* Possibly some global stuff */
