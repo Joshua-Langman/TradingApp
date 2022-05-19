@@ -25,7 +25,8 @@
 
 #watchlist-section {
     color: black;
-    max-height: 400px;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 #watchlist-section>ul {
@@ -41,10 +42,16 @@
 }
 
 .watch-list-item {
-    padding: 10px;
-    border: 1px solid rgb(190, 190, 190);
+    padding: 20px;
+    margin: 10px 0px;
+    border: 1px solid rgb(165, 165, 165);
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+}
+
+.flex-fill{
+    flex: 1 1 auto;
 }
 
 .watch-list-item.selected {
