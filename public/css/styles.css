@@ -3,20 +3,36 @@ body{
     color: white;
     font-family: Helvetica, sans-serif;
     vertical-align: top;
-    height: 3rem;
-    width: 100%;
-    border-radius: 1em;
 }
 
 /*START of nav bar styling*/
 nav {
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
     background-color: #3b3b3b;
     height: 3rem;
     width: 100%;
+    top: 0;
+    position: sticky;
+    z-index: 1;
 }
 
-nav ul {
-    display: flex;
+nav a {
+    text-decoration: none;
+    background: #3b3b3b;
+    border-radius: 10px;
+    padding: 1rem 0.75rem;
+    margin-left: 1em;
+    color: white;
+}
+
+nav a:hover {
+    background-color: #292929;
+}
+
+/* nav ul {
+    flex-direction: row;
     justify-content: flex-start;
     list-style-type: none;
     gap: 4%;
@@ -34,12 +50,8 @@ nav li {
 }
 
 nav li>a {
-    /* gap: 2%; */
     color: #c5c5c5;
     text-decoration: none;
 }
 
-nav li:hover {
-    background-color: #292929;
-}
-/* END of nav bar styling */
+END of nav bar styling */
