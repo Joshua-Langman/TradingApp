@@ -1,0 +1,11 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --primary-dark: #15192a;
+    --primary-dark-2: #1f263c;
+    --primary-dark-3: #333377;
+    --text-primary: #eeeeee;
+    --secondary-blue: #0d43ee;
+}
