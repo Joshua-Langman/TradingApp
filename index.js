@@ -178,13 +178,16 @@ app.get("/market/prices", (request, response) => {
             for (let symbol of pairSymbols) {
                 axios.get("https://api.cryptowat.ch/markets/luno/" + symbol + "/price")
                 .then(res => {
+
                     pushToPairs(symbol, res.data.result.price);
+                    if(Object.keys(pairs).length == 11){
+                        resolve(pairs)
+                    }
                 })
                 .catch(error => {
                     reject(error.message)
                 });
             }
-            resolve(pairs)
         })
 
         getPairs.then(res => {
