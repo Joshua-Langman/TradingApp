@@ -1,0 +1,83 @@
+@import "global.css";
+
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--primary-dark);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 0em 15em 0em 20em; */
+    width: 20em;
+    padding:1em;
+    background-color:var(--primary-dark-2);
+    border-radius: 4px;
+}
+
+h1 {
+    color: cornflowerblue;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    align-self: start;
+    font-size: small;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+form input {
+    padding: 0.5em 0 0.5em 0.5em;
+    width: 18em;
+    border-radius: 4px;
+    background-color:var(--primary-dark-3);
+    color: var(--text-primary);
+    border: none;
+}
+
+form input:focus{
+    outline: none;
+}
+
+form button {
+    border-radius: 4px;
+    padding: 0.8em 3em 0.8em 3em;
+    border-style: none;
+    color: var(--text-primary);
+    background-color:var(--secondary-blue);
+}
+
+.submit:hover{
+    cursor: pointer;
+}
+
+.help-link{
+    color: var(--text-primary);
+    font-size: small;
+}
+
+.help-link a{
+    text-decoration: none;
+    color: var(--secondary-blue);
+}
+
+#error-message {
+    color: crimson;
+    font-size: small;
+    text-align: center;
+    margin: 3px 0 0 0;
+}
+
