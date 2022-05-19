@@ -1,49 +1,76 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/chart.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <title>Trading App</title>
-  </head>
 
-  <header>
-    <nav>
-      <ul>
-        <li><a href="app.html">Home</a></li>
-        <li><a href="chart.html">Chart</a></li>
-        <li><a href="quote.html">Quotes</a></li>
-      </ul>
-    </nav>
-    
-  </header>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading App</title>
 
-  <main>
-    <body>
-      <section>
-        <form>  <!--Make this a submit form-->
-          <select name="pair" id="select-pair" onchange="updateChart()">
-            <option value="select-pair">Select pair</option>
-            <option value="BTCZAR">BTCZAR</option>
-            <option value="ETHZAR">ETHZAR</option>
-            <option value="LTCZAR">LTCZAR</option>
-            <option value="XRPZAR">XRPZAR</option>
-          </select>
-        </form>
+  <link rel="stylesheet" href="../css/chart.css">
+</head>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="app.html">Home</a></li>
+      <li><a href="chart.html">Chart</a></li>
+      <li><a href="contact.asp">Contact</a></li>
+      <li><a href="about.asp">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <body>
+    <section class="main-section">
+      <article id="chart-container"></article>
+      <section class="side-bar">
+        <section id="watchlist-section">
+          <h1>Watchlist</h1>
+          <ul id="watchlist">
+          </ul>
+        </section>
+
+        <section id="order-form">
+          <h1 id="order-form-title">Order XRP/ZAR</h1>
+          <form action="/todo-order-form" method="post" id="new-order-form">
+            <label for="symbol">Symbol</label>
+            <select id="symbol" name="symbol">
+              <option value="usdzar" selected>USD / ZAR</option>
+            </select>
+
+            <label for="volume">Volume</label>
+            <input id="volume" type="number" name="volume" />
+
+            <label for="sl">Stop Loss</label>
+            <input id="sl" type="number" name="stoploss" />
+
+            <label for="tp">Take Profit</label>
+            <input id="tp" type="number" name="takeprofit" />
+
+            <div id="symbol-pair">
+              1.102 / 1.390
+            </div>
+
+            <input class="btn" id="btn-sell" type="submit" value="SELL" />
+            <input class="btn" id="btn-buy" type="submit" value="BUY" />
+          </form>
+        </section>
+
       </section>
-      
-      <section>
-        <article id="chart-container"></article>
-      </section>
-    </body>
+    </section>
+    </div>
+  </body>
 
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="../js/chart.js"></script>
-    
-  </main>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="../js/chart.js"></script>
+  <script src="../js/tradingview.js"></script>
+</main>
 
-  
 </html>
+
+<script>
+</script>
