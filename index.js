@@ -3,11 +3,10 @@ const firebase = require('firebase/app')
 const firebaseAuth = require('firebase/auth')
 const bodyParser = require('body-parser')
 const { request } = require('express');
-const { PORT } = require('./config');
+const { PORT, HOST } = require('./config');
 const cors = require('cors');
 const https = require('https');
 const axios = require('axios');
-
 
 const app = express();
 
@@ -32,35 +31,30 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebaseAuth.getAuth();
 
 // User auth variables
-var authorized = false;
+var Authenticated = false;
 var userAccessToken = null;
 var userAuthError = false;
 
 app.get("/", (req, res) => {
-    res.redirect('/login.html');
-})
-
-app.get("/trading", (req, res) => {
-    if(authorized){
-        res.redirect('/trading.html');
-    }else{
-        res.redirect('/login.html');
-    }
-    
+    res.redirect('/pages/login.html');
 })
 
 app.get("/register", (req, res) => {
-    res.redirect('/register.html')
+    res.redirect('pages/register.html')
 })
 
 app.get("/chart", (req, res) => {
-    res.redirect('/chart.html')
+    if(Authenticated){
+        res.redirect('pages/chart.html')
+    }else{
+        res.redirect('pages/login.html')
+    }
 })
 
 // User account is:
 //username brandons@bbd.co.za
 //password testpassword
-app.post("/login.html", (req, res) => {
+app.post("/pages/login.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.signInWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -69,18 +63,18 @@ app.post("/login.html", (req, res) => {
             Authenticated = true;
             var user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/loginError.html')
+            res.redirect('/pages/loginError.html')
         })
 })
 
-app.post("/loginError.html", (req, res) => {
+app.post("/pages/loginError.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.signInWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -89,18 +83,18 @@ app.post("/loginError.html", (req, res) => {
             var user = userCredentials.user;
             Authenticated = true;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/loginError.html')
+            res.redirect('/pages/loginError.html')
         })
 })
 
-app.post("/register.html", (req, res) => {
+app.post("/pages/register.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.createUserWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -109,18 +103,18 @@ app.post("/register.html", (req, res) => {
             Authenticated = true;
             const user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/registerError.html')
+            res.redirect('/pages/registerError.html')
         })
 })
 
-app.post("/registerError.html", (req, res) => {
+app.post("/pages/registerError.html", (req, res) => {
     console.log(req.body);
 
     firebaseAuth.createUserWithEmailAndPassword(auth, req.body.username, req.body.password)
@@ -129,19 +123,23 @@ app.post("/registerError.html", (req, res) => {
             Authenticated = true;
             const user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
             var errorCode = error.code;
             var errorMessage = error.message;
             console.log(errorCode , errorMessage);
-            res.redirect('/registerError.html')
+            res.redirect('/pages/registerError.html')
         })
 })
 
 app.get('/quote', (req, res) => {
-    res.redirect('/quote.html')
+    if(Authenticated){
+        res.redirect('/pages/quote.html')
+    }else{
+        res.redirect('/pages/login.html')
+    }
 })
 
 // Retrieve market pairs from cryptowatch
@@ -160,6 +158,7 @@ app.get("/market/pairs", (request, response) => {
 })
 
 var pairs = new Object();
+
 function pushToPairs(key, value){
     pairs[key] = value
     // console.log(pairs)
@@ -203,6 +202,30 @@ app.get("/market/prices", (request, response) => {
     });   
 })
 
+app.get("/market/candles", (request, response) => {
+
+    const baseUrl="https://api.cryptowat.ch/markets/";
+    const exchange=request.query.exchange;
+    const pair=request.query.pair;
+    const after=request.query.after;
+    const periods=request.query.periods;
+
+    axios.get(`${baseUrl}${exchange}/${pair}/ohlc?after=${after}&periods=${periods}`)
+    .then(res => {
+        response.send(res.data.result);
+    })
+    .catch(error => {
+        console.log("candles request failed")
+        // console.log(Object.keys(error));
+        console.log(error.message)
+    });   
+});
+
 app.listen(PORT, () => {
-    console.log(`Web application ready @ http://localhost:${PORT}`);
+    if(process.env.NODE_ENV !== 'production') {
+        console.log(`Web application ready @ http://${HOST}:${PORT}`);
+    }
+    else {
+        console.log(`Web application ready on port: ${PORT}`);
+    }
 });
