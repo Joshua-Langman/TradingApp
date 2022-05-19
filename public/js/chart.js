@@ -96,7 +96,7 @@ function convertToChartData(rawDataArray){
     return cryptoWatchDatapoints;
 }
 
-function updateChart(){
+function updateChart(pair){
 
     //One day back
     let startDate=new Date();
@@ -108,7 +108,7 @@ function updateChart(){
 
     const paramsObject={
         exchange:"luno",
-        pair:document.getElementById("select-pair").value,
+        pair:pair,
         after:startDate,
         periods:3600,
     };
