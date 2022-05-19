@@ -31,9 +31,9 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebaseAuth.getAuth();
 
 // User auth variables
-var Authenticated = false;
-var userAccessToken = null;
-var userAuthError = false;
+let Authenticated = false;
+let userAccessToken = null;
+let userAuthError = false;
 
 app.get("/", (req, res) => {
     res.redirect('/pages/login.html');
@@ -54,84 +54,47 @@ app.get("/chart", (req, res) => {
 // User account is:
 //username brandons@bbd.co.za
 //password testpassword
-app.post("/pages/login.html", (req, res) => {
-    console.log(req.body);
+app.post("/pages/login.html", async (req, res) => {
+    const { username, password } = req.body;
 
-    firebaseAuth.signInWithEmailAndPassword(auth, req.body.username, req.body.password)
-        .then((userCredentials) => {
-            //signed in
-            Authenticated = true;
-            var user = userCredentials.user;
-            userAccessToken = user.accessToken;
-            res.redirect('/pages/chart.html')
-        })
-        .catch((error) => {
-            userAuthError = true;
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode , errorMessage);
-            res.redirect('/pages/loginError.html')
-        })
+    try {
+       const authenticationResponse = await firebaseAuth.signInWithEmailAndPassword(auth, username, password);
+       Authenticated = true;
+
+       userAccessToken = authenticationResponse.accessToken;
+
+       res.redirect('/pages/chart.html');
+    }
+    catch(error) {
+        userAuthError = true;
+
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        console.log(errorCode , errorMessage);
+
+        res.redirect(`/pages/login.html?errorMessage=${errorMessage}`);
+    }
 })
 
-app.post("/pages/loginError.html", (req, res) => {
-    console.log(req.body);
+app.post("/pages/register.html", async (req, res) => {
+    const { username, password } = req.body;
 
-    firebaseAuth.signInWithEmailAndPassword(auth, req.body.username, req.body.password)
-        .then((userCredentials) => {
-            //signed in
-            var user = userCredentials.user;
-            Authenticated = true;
-            userAccessToken = user.accessToken;
-            res.redirect('/pages/chart.html')
-        })
-        .catch((error) => {
-            userAuthError = true;
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode , errorMessage);
-            res.redirect('/pages/loginError.html')
-        })
-})
+    try {
+        const { user, accessToken } = await firebaseAuth.createUserWithEmailAndPassword(auth, username, password);
 
-app.post("/pages/register.html", (req, res) => {
-    console.log(req.body);
+        Authenticated = true;
+        userAccessToken = accessToken;
 
-    firebaseAuth.createUserWithEmailAndPassword(auth, req.body.username, req.body.password)
-        .then((userCredentials) => {
-            //signed in
-            Authenticated = true;
-            const user = userCredentials.user;
-            userAccessToken = user.accessToken;
-            res.redirect('/pages/chart.html')
-        })
-        .catch((error) => {
-            userAuthError = true;
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode , errorMessage);
-            res.redirect('/pages/registerError.html')
-        })
-})
+        res.redirect('/pages/chart.html')
+    }
+    catch(error) {
+        userAuthError = true;
 
-app.post("/pages/registerError.html", (req, res) => {
-    console.log(req.body);
+        const { code, message } = error;
 
-    firebaseAuth.createUserWithEmailAndPassword(auth, req.body.username, req.body.password)
-        .then((userCredentials) => {
-            //signed in
-            Authenticated = true;
-            const user = userCredentials.user;
-            userAccessToken = user.accessToken;
-            res.redirect('/pages/chart.html')
-        })
-        .catch((error) => {
-            userAuthError = true;
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log(errorCode , errorMessage);
-            res.redirect('/pages/registerError.html')
-        })
+        res.redirect(`/pages/register.html?errorMessage=${message}`);
+    }
 })
 
 app.get('/quote', (req, res) => {
