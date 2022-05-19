@@ -222,6 +222,11 @@ app.get("/market/candles", (request, response) => {
     });   
 });
 
-app.listen(PORT, hostname='0.0.0.0', () => {
-    console.log(`Web application ready @ http://0.0.0.0:${PORT}`);
+app.listen(PORT, () => {
+    if(process.env.NODE_ENV !== 'production') {
+        console.log(`Web application ready @ http://${HOST}:${PORT}`);
+    }
+    else {
+        console.log(`Web application ready on port: ${PORT}`);
+    }
 });
