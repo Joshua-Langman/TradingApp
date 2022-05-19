@@ -15,10 +15,13 @@ updateUI()
 button.addEventListener("click", updateUI)
 
 function updateUI(){
+  console.log("update ui")
   //Fetch Market prices
   fetch("/market/prices")
   .then(response => response.json())
   .then(data => {
+    console.log("inside quotejs")
+    console.log(data)
     if(Object.keys(data).length != 0){
       console.log(data)
       let i = 0;
