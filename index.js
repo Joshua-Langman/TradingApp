@@ -222,6 +222,19 @@ app.get("/market/candles", (request, response) => {
     });   
 });
 
+app.get("/news/articles", (request, response) => {
+
+    axios.get('https://cryptonews-api.com/api/v1/category?section=general&items=50&page=1&token=84ziopf1mxtacu2dezmsw9sibu6pzemayphmjita')
+    .then(res => {
+        response.send(res.data.result);
+    })
+    .catch(error => {
+        console.log("news request failed")
+        // console.log(Object.keys(error));
+        console.log(error.message)
+    });   
+});
+
 app.listen(PORT, () => {
     console.log(`Web application ready @ http://localhost:${PORT}`);
 });
