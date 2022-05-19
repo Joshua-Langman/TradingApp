@@ -69,7 +69,7 @@ app.post("/pages/login.html", (req, res) => {
             Authenticated = true;
             var user = userCredentials.user;
             userAccessToken = user.accessToken;
-            res.redirect('/chart.html')
+            res.redirect('/pages/chart.html')
         })
         .catch((error) => {
             userAuthError = true;
