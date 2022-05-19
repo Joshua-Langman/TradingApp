@@ -1,10 +1,12 @@
+@import "global.css";
+
 body{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #292929;
+    background-color: var(--primary-dark);
     font-family: 'Montserrat', sans-serif;
     margin: 0
 }
@@ -16,9 +18,8 @@ body{
     /* margin: 0em 15em 0em 20em; */
     width: 20em;
     padding:1em;
-    background-color:rgb(255, 255, 255);
+    background-color:var(--primary-dark-2);
     border-radius: 4px;
-    box-shadow: 0 0 2em #3b3b3b;
 }
 
 h1 {
@@ -31,27 +32,32 @@ form {
     align-items: center;
 }
 
-.input{
-    padding: 0.5em 0em 0.5em 0em;
-    width: 18em;
-    border-radius: 4px;
-    background-color: rgb(245, 245, 245);
-    border-style: solid;
-    font-family: 'Montserrat', sans-serif;
+form label {
+    align-self: start;
+    font-size: small;
+    color: var(--text-primary);
+    margin-bottom: 2px;
 }
 
-.input:focus{
-    border-color:cornflowerblue;
+form input {
+    padding: 0.5em 0 0.5em 0.5em;
+    width: 18em;
+    border-radius: 4px;
+    background-color:var(--primary-dark-3);
+    color: var(--text-primary);
+    border: none;
+}
+
+form input:focus{
     outline: none;
 }
 
-.submit {
+form button {
     border-radius: 4px;
     padding: 0.8em 3em 0.8em 3em;
     border-style: none;
-    color: white;
-    background-color: cornflowerblue;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--text-primary);
+    background-color:var(--secondary-blue);
 }
 
 .submit:hover{
@@ -59,17 +65,19 @@ form {
 }
 
 .help-link{
-    color: cornflowerblue;
-    font-size: small;    
+    color: var(--text-primary);
+    font-size: small;
 }
 
-a{
+.help-link a{
     text-decoration: none;
+    color: var(--secondary-blue);
 }
 
-.error-message {
+#error-message {
     color: crimson;
     font-size: small;
     text-align: center;
+    margin: 3px 0 0 0;
 }
 

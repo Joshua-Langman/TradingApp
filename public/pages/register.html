@@ -4,8 +4,8 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/auth.css">
-      <script defer src="../js/auth.js"></script>
+      <link rel="stylesheet" href="../css/form.css">
+      <script defer src="../js/error.js"></script>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -15,15 +15,16 @@
       <section class="form-container">
           <h1>Register</h1>
           <form method="POST">
-              <label for="username"></label>
-              <input type="email" name="username" class="input" id="username" placeholder="Username"/>
+              <label for="username">Username</label>
+              <input type="email" name="username" id="username"/>
               <br/>
-              <label for="password"></label>
-              <input type="password" name="password" class="input" id="password" placeholder="Password"/>
-              <p id="errorMessage"></p>
-              <p class="error-message">Password should be at least 6 characters</p>
-              <input type="submit" class="submit" value="Register"/>
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password"/>
+              <p id="error-message"></p>
+              <br/>
+              <button type="submit">Create account</button>
           </form>
+          <p class="help-link">Already have an account? <a href="./login.html">Login</a></p>
       </section>
   </body>
 </html>
