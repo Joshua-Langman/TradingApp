@@ -170,10 +170,8 @@ app.get("/market/candles", (request, response) => {
     const baseUrl="https://api.cryptowat.ch/markets/";
     const exchange=request.query.exchange;
     const pair=request.query.pair;
-    const after=request.query.after;
-    const periods=request.query.periods;
 
-    axios.get(`${baseUrl}${exchange}/${pair}/ohlc?after=${after}&periods=${periods}`)
+    axios.get(`${baseUrl}${exchange}/${pair}/ohlc`)
     .then(res => {
         response.send(res.data.result);
     })
