@@ -3,11 +3,10 @@ const firebase = require('firebase/app')
 const firebaseAuth = require('firebase/auth')
 const bodyParser = require('body-parser')
 const { request } = require('express');
-const { PORT } = require('./config');
+const { PORT, HOST } = require('./config');
 const cors = require('cors');
 const https = require('https');
 const axios = require('axios');
-
 
 const app = express();
 
@@ -223,5 +222,10 @@ app.get("/market/candles", (request, response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Web application ready @ http://localhost:${PORT}`);
+    if(process.env.NODE_ENV !== 'production') {
+        console.log(`Web application ready @ http://${HOST}:${PORT}`);
+    }
+    else {
+        console.log(`Web application ready on port: ${PORT}`);
+    }
 });
