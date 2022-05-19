@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/chart.css">
     <title>Trading App</title>
 </head>
 
 <header>
     <nav>
       <ul>
-        <li><a href="app.html">Home</a></li>
+        <li><a href="app.html">News</a></li>
         <li><a href="chart.html">Chart</a></li>
         <li><a href="quote.html">Quotes</a></li>
       </ul>
@@ -19,6 +20,16 @@
 </header>
 
 <body>
-    <h1> Welcome To the landing. </h1>
+  <section class="main-section">
+    <article id="chart-container"></article>
+    <section class="side-bar">
+      <section id="watchlist-section">
+        <h1>Watchlist</h1>
+        <ul id="watchlist">
+        </ul>
+      </section>
+    </section>
+  </section>
+  <script src="../js/tradingview.js"></script>
 </body>
 </html>
