@@ -1,47 +1,3 @@
-body {
-    background-color: black;
-    color: white;
-    font-family: Helvetica, sans-serif;
-}
-
-/* Nav Styles */
-nav {
-    background-color: #3b3b3b;
-    height: 3rem;
-    width: 100%;
-}
-
-nav ul {
-    display: flex;
-    justify-content: flex-start;
-    list-style-type: none;
-    gap: 4%;
-    background-color: #3b3b3b;
-    width: 20%;
-    height: 100%;
-}
-
-nav li {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 0 1rem 0 1rem;
-    background-color: #3b3b3b;
-}
-
-nav li>a {
-    /* gap: 2%; */
-    color: #c5c5c5;
-    text-decoration: none;
-}
-
-nav li:hover {
-    background-color: #292929;
-}
-
-/* END of nav styles */
-
-
 .main-section {
     display: flex;
     margin-top: 20px;
@@ -53,12 +9,6 @@ nav li:hover {
     width: 100%;
     height: 80vh;
     margin-right: 20px;
-}
-
-
-/* watch list */
-.main-section>.side-bar {
-    flex: 1;
 }
 
 .main-section>.side-bar {
