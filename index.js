@@ -32,7 +32,7 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebaseAuth.getAuth();
 
 // User auth variables
-var authorized = false;
+var Authenticated = false;
 var userAccessToken = null;
 var userAuthError = false;
 
@@ -40,21 +40,16 @@ app.get("/", (req, res) => {
     res.redirect('/pages/login.html');
 })
 
-app.get("/trading", (req, res) => {
-    if(authorized){
-        res.redirect('pages/trading.html');
-    }else{
-        res.redirect('pages/login.html');
-    }
-    
-})
-
 app.get("/register", (req, res) => {
     res.redirect('pages/register.html')
 })
 
 app.get("/chart", (req, res) => {
-    res.redirect('pages/chart.html')
+    if(Authenticated){
+        res.redirect('pages/chart.html')
+    }else{
+        res.redirect('pages/login.html')
+    }
 })
 
 // User account is:
@@ -141,7 +136,11 @@ app.post("/pages/registerError.html", (req, res) => {
 })
 
 app.get('/quote', (req, res) => {
-    res.redirect('/pages/quote.html')
+    if(Authenticated){
+        res.redirect('/pages/quote.html')
+    }else{
+        res.redirect('/pages/login.html')
+    }
 })
 
 // Retrieve market pairs from cryptowatch
@@ -222,8 +221,6 @@ app.get("/market/candles", (request, response) => {
         console.log(error.message)
     });   
 });
-
-
 
 app.listen(PORT, () => {
     console.log(`Web application ready @ http://localhost:${PORT}`);

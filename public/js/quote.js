@@ -25,8 +25,11 @@ function updateUI(){
       for (const key in data) {
         let UIKey = cells[i].children[0]
         let UIValue = cells[i].children[1]
-        UIKey.textContent = key;
-        UIValue.textContent = data[key]
+        UIKey.textContent = key.toLocaleUpperCase();
+        UIValue.textContent = data[key].toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        // UIValue.textContent = data[key].toLocaleString('en-US', {
+        //   style: 'currency'
+        // });
         i++;
       }
     }
