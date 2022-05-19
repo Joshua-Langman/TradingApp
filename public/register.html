@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/register.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
-    <title>SignIn</title>
-</head>
-<body>
-
-    <section class="signInForm">
-        <h2>Register</h2>
-        <form method="POST">
-            <input type="email" name="username" class="input" id="username" placeholder="Username">
-            <input type="password" name="password" class="input" id="password" placeholder="Password">
-            <p >Password should be at least 6 characters</p>
-            <input type="submit" class="submit" value="Register">
-        </form>
-    </section>
-    
-</body>
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/auth.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+      <title>Register</title>
+  </head>
+  <body>
+      <section class="form-container">
+          <h1>Register</h1>
+          <form method="POST">
+              <label for="username"></label>
+              <input type="email" name="username" class="input" id="username" placeholder="Username"/>
+              <br/>
+              <label for="password"></label>
+              <input type="password" name="password" class="input" id="password" placeholder="Password"/>
+              <p class="error-message">Password should be at least 6 characters</p>
+              <input type="submit" class="submit" value="Register"/>
+          </form>
+      </section>
+  </body>
 </html>
