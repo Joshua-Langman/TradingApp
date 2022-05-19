@@ -8,17 +8,21 @@ for (let i = 1; i < 12; i++) {
   cells.push(document.getElementById("symbol" + i));
 }
 
-// First always returns null for some reason??
-updateUI()
-updateUI()
+//waits for browser to completely load, then call updateUI.
+window.addEventListener('load', () => {
+  updateUI();
+})
 
 button.addEventListener("click", updateUI)
 
 function updateUI(){
+  console.log("update ui")
   //Fetch Market prices
   fetch("/market/prices")
   .then(response => response.json())
   .then(data => {
+    console.log("inside quotejs")
+    console.log(data)
     if(Object.keys(data).length != 0){
       console.log(data)
       let i = 0;
