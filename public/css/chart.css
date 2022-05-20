@@ -1,7 +1,15 @@
 .main-section {
     display: flex;
+    flex-direction: row;
     margin-top: 20px;
 }
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+    .main-section {
+      flex-direction: column;
+    }
+  }
 
 /* Chart */
 .main-section>#chart-container {
@@ -10,6 +18,7 @@
     height: 80vh;
     margin-right: 20px;
     position: sticky;
+   
 }
 
 .main-section>.side-bar {
@@ -91,10 +100,10 @@ select {
     margin-bottom: 10px;
     text-align: center;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(253, 253, 253);
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(37, 37, 37);
 }
 
 .btn {

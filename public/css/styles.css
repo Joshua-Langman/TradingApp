@@ -9,7 +9,7 @@ nav {
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
-    background-color: #3b3b3b;
+    background-color: rgb(37, 37, 37);
     height: 3rem;
     width: 100%;
     top: 0;
@@ -19,7 +19,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    background: #3b3b3b;
+    background: rgb(37, 37, 37);
     border-radius: 10px;
     padding: 1rem 0.75rem;
     margin-left: 1em;
@@ -27,5 +27,5 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #2929297f;
+    background-color: rgb(77, 77, 77);
 }
