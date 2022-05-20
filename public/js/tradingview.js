@@ -1,5 +1,19 @@
+let orderVolume = 0.0;
 let selectedPair = undefined;
 let pairs = [];
+
+var modal = document.getElementById("notify-modal");
+var span = document.getElementById("modal-close");
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 
 function renderWatchList() {
     const watchList = document.getElementById('watchlist');
@@ -23,6 +37,22 @@ function renderWatchList() {
     });
 }
 
+function onVolumeChanged(e) {
+    orderVolume = e.target.value;
+
+    renderOrderForm();
+}
+
+function showSuccessNotification(isBuy) {
+    modal.style.display = "block";
+
+    let sym1 = selectedPair.name.split('/')[0];
+    let sym2 = selectedPair.name.split('/')[1];
+    
+    document.getElementById('modal-header').innerHTML = `${isBuy? 'Buy' : 'Sell'} order placed successfully`;
+    document.getElementById('modal-descr').innerHTML = `${isBuy? 'Bought' : 'Sold'} ${orderVolume} ${sym1} @ (${selectedPair.price} ${sym2} per ${sym1})`;
+}
+
 function renderChart() {
     updateChart(selectedPair.code);
 }
@@ -32,7 +62,9 @@ function renderOrderForm() {
     document.getElementById('order-form-title').innerHTML = `Place ${selectedPair.name} Order`;
 
     // options
-        
+    let price1 = orderVolume * selectedPair.price;
+    document.getElementById('symbol-pair').innerHTML = `${orderVolume} ${selectedPair.name.split('/')[0]} / ${price1} ${selectedPair.name.split('/')[1]}`;
+
 }
 
 function setSelectedPair(pair) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,48 +8,65 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/chart.css">
   <title>Trading App</title>
+
+  <style>
+  </style>
+
 </head>
-  <body>
-    <nav>
-      <a href="news.html">News</a>
-      <a href="chart.html">Chart</a>
-      <a href="quote.html">Quotes</a>
-      <a href="history.html">History</a>
-    </nav>
-    <section class="main-section">
-      <article id="chart-container"></article>
-      <section class="side-bar">
-        <section id="watchlist-section">
-          <h1 class="section-header">Trading Pairs</h1>
-          <ul id="watchlist">
-          </ul>
-        </section>
 
-        <section id="order-form">
-          <h1 class="section-header" id="order-form-title">Place ? Order</h1>
-          <form action="/todo-order-form" method="post" id="new-order-form">
-            <label for="volume">Volume</label>
-            <input id="volume" type="number" name="volume" />
+<body>
+  <div id="notify-modal" class="modal">
+    <div class="modal-content">
+      <span id="modal-close" class="modal-close">&times;</span>
+      <h1 class="text-success" id="modal-header">Buy Order Placed Successfully</h1>
+      <p id="modal-descr">Successfully bought 10 BTC @ (2001 ZAR per BTC)</p>
+    </div>
+  </div>
 
-            <label for="sl">Stop Loss</label>
-            <input id="sl" type="number" name="stoploss" />
-
-            <label for="tp">Take Profit</label>
-            <input id="tp" type="number" name="takeprofit" />
-
-            <div id="symbol-pair">
-              1.102/1.390
-            </div>
-
-            <input class="btn" id="btn-sell" type="submit" value="SELL" />
-            <input class="btn" id="btn-buy" type="submit" value="BUY" />
-          </form>
-        </section>
-
+  <nav>
+    <a href="news.html">News</a>
+    <a href="chart.html">Chart</a>
+    <a href="quote.html">Quotes</a>
+    <a href="history.html">History</a>
+  </nav>
+  <section class="main-section">
+    <article id="chart-container"></article>
+    <section class="side-bar">
+      <section id="watchlist-section">
+        <h1 class="section-header">Trading Pairs</h1>
+        <ul id="watchlist">
+        </ul>
       </section>
+
+      <section id="order-form">
+        <h1 class="section-header" id="order-form-title">Place ? Order</h1>
+        <form  id="new-order-form">
+          <label for="inpt-volume">Volume</label>
+          <input id="inpt-volume" type="number" name="volume" oninput="onVolumeChanged(event)" />
+
+          <label for="inpt-sl">Stop Loss</label>
+          <input id="inpt-sl" type="number" name="stoploss" />
+
+          <label for="inpt-tp">Take Profit</label>
+          <input id="inpt-tp" type="number" name="takeprofit" />
+
+          <div id="symbol-pair">
+            1.102/1.390
+          </div>
+
+          <input class="btn" id="btn-sell" type="button" value="SELL" onclick="showSuccessNotification(false)"/>
+          <input class="btn" id="btn-buy" type="button" value="BUY" onclick="showSuccessNotification(true)"/>
+        </form>
+      </section>
+
     </section>
+  </section>
   <script src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
   <script src="../js/chart.js"></script>
   <script src="../js/tradingview.js"></script>
+  <script>
+
+  </script>
 </body>
+
 </html>
