@@ -37,11 +37,11 @@ let userAuthError = false;
 
 app.get("/", (req, res) => {
     res.redirect('/pages/login.html');
-})
+});
 
 app.get("/register", (req, res) => {
     res.redirect('pages/register.html')
-})
+});
 
 app.get("/chart", (req, res) => {
     if(Authenticated){
@@ -49,7 +49,7 @@ app.get("/chart", (req, res) => {
     }else{
         res.redirect('pages/login.html')
     }
-})
+});
 
 // User account is:
 //username brandons@bbd.co.za
@@ -75,7 +75,7 @@ app.post("/pages/login.html", async (req, res) => {
 
         res.redirect(`/pages/login.html?errorMessage=${errorMessage}`);
     }
-})
+});
 
 app.post("/pages/register.html", async (req, res) => {
     const { username, password } = req.body;
@@ -95,7 +95,7 @@ app.post("/pages/register.html", async (req, res) => {
 
         res.redirect(`/pages/register.html?errorMessage=${message}`);
     }
-})
+});
 
 app.get('/quote', (req, res) => {
     if(Authenticated){
@@ -103,7 +103,7 @@ app.get('/quote', (req, res) => {
     }else{
         res.redirect('/pages/login.html')
     }
-})
+});
 
 // Retrieve market pairs from cryptowatch
 app.get("/market/pairs", (request, response) => {
@@ -118,7 +118,7 @@ app.get("/market/pairs", (request, response) => {
     .catch(error => {
         console.log(error.message);
     });
-})
+});
 
 var pairs = new Object();
 
@@ -166,7 +166,7 @@ app.get("/market/prices", (request, response) => {
         // console.log(Object.keys(error));
         console.log(error.message)
     });   
-})
+});
 
 app.get("/market/candles", (request, response) => {
 
@@ -183,6 +183,58 @@ app.get("/market/candles", (request, response) => {
         // console.log(Object.keys(error));
         console.log(error.message)
     });   
+});
+
+app.get("/history/stock", (request, response) => {
+    const options = {
+        method: 'GET',
+        url: 'https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo',
+        json: true,
+        headers: {'User-Agent': 'request'}
+      };
+
+      axios.request(options).then(function (res) {
+          response.send(res.data);
+      }).catch(function (error) {
+          console.error(error);
+      });
+});
+
+app.get("/news/articles", (request, response) => {
+
+    const options = {
+        method: 'GET',
+        url: 'https://crypto-news-live3.p.rapidapi.com/news',
+        headers: {
+          'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com',
+          'X-RapidAPI-Key': '5c3063eea1msha498f9cfd3f8728p1083d1jsn3d8f3dd86606'
+        }
+      };
+
+      axios.request(options).then(function (res) {
+          console.log(res.data);
+          response.send(res.data)
+      }).catch(function (error) {
+          console.error(error);
+      });
+});
+
+app.get("/news/images", (request, response) => {
+
+    const options = {
+        method: 'GET',
+        url: 'https://api.pexels.com/v1/search?query=cryptocurrency',
+        headers: {
+          'Authorization' : '563492ad6f917000010000016cc3b0743c6b4c69a6c9ce7a5a196864'
+        }
+      };
+
+      axios.request(options).then(function (res) {
+          console.log(res.data);
+          response.send(res.data)
+      }).catch(function (error) {
+          console.error(error);
+      });
 });
 
 app.listen(PORT, () => {

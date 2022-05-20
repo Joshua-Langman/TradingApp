@@ -7,4 +7,4 @@ RUN npm install
 COPY --chown=node:node . .
 ENV NODE_ENV=production PORT=8080 HOST=0.0.0.0
 EXPOSE 8080
-CMD [ "npm", "run", "prod" ]
+CMD [ "node", "./index.js" ]
