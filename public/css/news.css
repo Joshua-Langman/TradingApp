@@ -78,13 +78,13 @@ ul {
 
 .blog-text .blog-title :hover{
     font-weight: 700;
-    color: #0a0559;
+    color: #6a6a6a;
     transition:  all ease 0.3s;
 }
 
 .blog-text a :hover{
     font-weight: 700;
-    color: #0a0559;
+    color: #6a6a6a;
     transition:  all ease 0.3s;
 }
 

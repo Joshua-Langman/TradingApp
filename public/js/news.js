@@ -22,7 +22,7 @@ function updateUI(){
           </figure>
           <section class="blog-text">
             <p>20 May 2020 / ${data[index].source}</p>
-            <a href="${data[index].url}" class="blog-title">${data[index].title}</a>
+            <a href="${data[index].url}"  target="_blank"><p class="blog-title">${data[index].title}<p/></a>
           </section>
         </article>`
 
