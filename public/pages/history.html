@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/history.css">
     <title>Trading App</title>
 </head>
 
@@ -15,6 +16,10 @@
         <a href="quote.html">Quotes</a>
         <a href="history.html">History</a>
     </nav>
-    <h1>Your History</h1>
+    <h2 id="title">Company Financial History -</h2>
+    <article id="company-history">
+        <table id="table-history"></table>
+    </article>
+    <script type="module" src="../js/history.js"></script>
 </body>
 </html>

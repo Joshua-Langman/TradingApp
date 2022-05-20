@@ -1,0 +1,106 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+ul {
+    list-style: none;
+}
+
+#blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    /* padding: 40px;
+    border-bottom: 1px solid rgba(rgba(0, 0, 0, 0.05), green, blue, alpha); */
+}
+
+.blog-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blog-box {
+    width: 20em;
+    background-color: #1E222D;
+    border: 1px solid #1E222D;
+    border-radius: 0.5rem;
+    margin: 20px;
+}
+
+.blog-img {
+    width: 100%;
+    height: 13em;
+}
+
+.blog-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-text {
+    padding: 0.5rem 1rem;
+}
+
+.blog-text p{
+    color: rgb(167, 167, 179);
+    font-size: 0.9rem;
+}
+
+.blog-text .blog-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #fafafa;
+}
+
+.blog-text .blog-title :hover{
+    font-weight: 700;
+    color: #6a6a6a;
+    transition:  all ease 0.3s;
+}
+
+.blog-text a :hover{
+    font-weight: 700;
+    color: #6a6a6a;
+    transition:  all ease 0.3s;
+}
+
+.blog-info {
+    color: #9b9b9b;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+}
+
+@media (max-width: 1250px) {
+    .blog-box {
+        width: 300px;
+    }
+}

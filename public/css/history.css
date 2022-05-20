@@ -1,0 +1,33 @@
+h2 {
+    margin-left: 1.5em;
+    margin-top: 1.5em;
+}
+
+#company-history {
+    margin-top: 1.5em;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+  
+td {
+    border: 1px solid #dddddd33;
+    text-align: left;
+    padding: 0.5em;
+    min-width: 5em;
+}
+
+th {
+    margin-left: 0;
+    margin-right: 10px;
+    min-width: 5em;
+    max-width: 5em;
+    border: 1px solid #dddddd33;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
