@@ -5,7 +5,6 @@ body{
     vertical-align: top;
 }
 
-/*START of nav bar styling*/
 nav {
     overflow: hidden;
     display: flex;
@@ -28,30 +27,5 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #292929;
+    background-color: #2929297f;
 }
-
-/* nav ul {
-    flex-direction: row;
-    justify-content: flex-start;
-    list-style-type: none;
-    gap: 4%;
-    background-color: #3b3b3b;
-    width: 20%;
-    height: 100%;
-}
-
-nav li {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 0 1rem 0 1rem;
-    background-color: #3b3b3b;
-}
-
-nav li>a {
-    color: #c5c5c5;
-    text-decoration: none;
-}
-
-END of nav bar styling */
