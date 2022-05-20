@@ -186,18 +186,40 @@ app.get("/market/candles", (request, response) => {
 });
 
 app.get("/news/articles", (request, response) => {
+    
+    const options = {
+        method: 'GET',
+        url: 'https://crypto-news-live3.p.rapidapi.com/news',
+        headers: {
+          'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com',
+          'X-RapidAPI-Key': '5c3063eea1msha498f9cfd3f8728p1083d1jsn3d8f3dd86606'
+        }
+      };
+      
+      axios.request(options).then(function (res) {
+          console.log(res.data);
+          response.send(res.data)
+      }).catch(function (error) {
+          console.error(error);
+      });
+});
 
-    // console.log('news stuff')
-    axios.get('https://cryptonews-api.com/api/v1/category?section=general&items=10&page=1&token=84ziopf1mxtacu2dezmsw9sibu6pzemayphmjita')
-    .then(res => {
-        console.log(res)
-        response.send(res.data);
-    })
-    .catch(error => {
-        console.log("news request failed")
-        // console.log(Object.keys(error));
-        console.log(error.message)
-    });   
+app.get("/news/images", (request, response) => {
+
+    const options = {
+        method: 'GET',
+        url: 'https://api.pexels.com/v1/search?query=cryptocurrency',
+        headers: {
+          'Authorization' : '563492ad6f917000010000016cc3b0743c6b4c69a6c9ce7a5a196864'
+        }
+      };
+      
+      axios.request(options).then(function (res) {
+          console.log(res.data);
+          response.send(res.data)
+      }).catch(function (error) {
+          console.error(error);
+      });
 });
 
 app.listen(PORT, () => {

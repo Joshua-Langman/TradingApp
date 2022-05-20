@@ -1,35 +1,37 @@
-// function updateUI(){
-//     // console.log('in ui trig')
-//     fetch("/news/articles")
-//     .then(response => {
-//         response.json()
-//     })
-//   }
-
-// //   await updateUI()
-// async function uiTrigger(){
-//     // console.log('in ui trig')
-//     let temp = await updateUI()
-//     console.log(temp)
-// }
-
-// uiTrigger()
-// uiTrigger()
-
-updateUI()
+window.addEventListener('load', () => {
+  updateUI();
+})
 
 function updateUI(){
-    //Fetch Market prices
     fetch("/news/articles")
     .then(response => response.json())
     .then(data => {
-        console.log(data)
       if(Object.keys(data).length != 0){
-        console.log(data)
-        for (const key in data) {
+        fetch("/news/images")
+        .then(response => response.json())
+        .then(images => {
+          let items = []
+          let item
+          
+      if(Object.keys(images).length != 0){
+        let index = 0
+        for (const photo of images.photos) {
+          item = `<article class="blog-box">
+          <figure class="blog-img">
+            <img src="${photo.src.medium}" alt="">
+          </figure>
+          <section class="blog-text">
+            <p>20 May 2020 / ${data[index].source}</p>
+            <a href="${data[index].url}" class="blog-title">${data[index].title}</a>
+          </section>
+        </article>`
 
-
+        items.push(item)
+          index++
         }
+        document.getElementById("blog").innerHTML = items.join('')
+      }
+    });
       }
     });
   }
