@@ -75,10 +75,15 @@ select {
 #symbol-pair {
     border: 1px solid gray;
     border-radius: 10px;
-    padding: 20px;
+    padding: 12px 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(201, 201, 201);
 }
 
 .btn {
