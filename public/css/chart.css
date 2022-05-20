@@ -19,14 +19,15 @@
 /* Sidebar Section Cards */
 .main-section>.side-bar>section {
     margin-bottom: 10px;
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(37, 37, 37);
     border-radius: 10px;
     padding: 10px 20px;
+    color: white;
 }
 
 #watchlist-section {
-    color: black;
-    max-height: 400px;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 #watchlist-section>ul {
@@ -35,19 +36,29 @@
 }
 
 #order-form {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(223, 223, 223);
+    background-color: rgb(37, 37, 37);
     border-radius: 10px;
     padding: 20px;
-    color: black;
+    color: white;
+}
+
+.section-header{
+    color: white;
+    font-size: 1.2rem;
 }
 
 .watch-list-item {
-    padding: 10px;
-    border: 1px solid rgb(190, 190, 190);
+    padding: 20px;
+    margin: 10px 0px;
+    border: 1px solid rgb(165, 165, 165);
     border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    color: white;
+}
+
+.flex-fill{
+    flex: 1 1 auto;
 }
 
 .watch-list-item.selected {
@@ -55,7 +66,7 @@
 }
 
 .watch-list-item:hover:not(.selected) {
-    background-color: rgb(207, 207, 207);
+    background-color: rgba(100, 148, 237, 0.486);
 }
 
 /* Possibly some global stuff */
@@ -95,13 +106,13 @@ select {
 }
 
 #btn-buy {
-    background-color: rgb(0, 127, 201);
+    background-color: cornflowerblue;
     color: white;
     width: 100%;
 }
 
 #btn-sell {
-    background-color: rgb(105, 0, 0);
+    background-color: rgb(153, 0, 0);
     color: white;
     width: 100%;
 }
@@ -113,3 +124,49 @@ select {
 #btn-sell:hover {
     background-color: rgba(94, 3, 3, 0.693);
 }
+
+.text-success{
+    color: green;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: rgb(37, 37, 37);
+    color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 10px;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .model-close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .model-close:hover,
+  .model-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

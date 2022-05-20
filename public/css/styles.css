@@ -29,3 +29,21 @@ nav a {
 nav a:hover {
     background-color: #2929297f;
 }
+
+nav li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem 0 1rem;
+    background-color: #3b3b3b;
+}
+
+nav li>a {
+    color: #c5c5c5;
+    text-decoration: none;
+}
+
+END of nav bar styling */
+
+
+/* Popup Modal */
