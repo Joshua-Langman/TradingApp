@@ -11,14 +11,6 @@
 </head>
 
 <body>
-  <div id="notify-modal" class="modal">
-    <div class="modal-content">
-      <span id="modal-close" class="modal-close">&times;</span>
-      <h1 class="text-success" id="modal-header">Buy Order Placed Successfully</h1>
-      <p id="modal-descr">Successfully bought 10 BTC @ (2001 ZAR per BTC)</p>
-    </div>
-  </div>
-
   <nav>
     <a href="news.html">News</a>
     <a href="chart.html">Chart</a>
@@ -27,6 +19,7 @@
   </nav>
   <section class="main-section">
     <article id="chart-container"></article>
+    
     <section class="side-bar">
       <section id="watchlist-section">
         <h1 class="section-header">Trading Pairs</h1>
@@ -36,7 +29,7 @@
 
       <section id="order-form">
         <h1 class="section-header" id="order-form-title">Place ? Order</h1>
-        <form  id="new-order-form">
+        <form id="new-order-form">
           <label for="inpt-volume">Volume</label>
           <input id="inpt-volume" type="number" name="volume" oninput="onVolumeChanged(event)" />
 
@@ -50,16 +43,26 @@
             1.102/1.390
           </div>
 
-          <input class="btn" id="btn-sell" type="button" value="SELL" onclick="showSuccessNotification(false)"/>
-          <input class="btn" id="btn-buy" type="button" value="BUY" onclick="showSuccessNotification(true)"/>
+          <input class="btn" id="btn-sell" type="button" value="SELL" onclick="showSuccessNotification(false)" />
+          <input class="btn" id="btn-buy" type="button" value="BUY" onclick="showSuccessNotification(true)" />
         </form>
       </section>
 
     </section>
   </section>
-  <script src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
-  <script src="../js/chart.js"></script>
-  <script src="../js/tradingview.js"></script>
+
+  <article id="notify-modal" class="modal">
+    <section class="modal-content">
+      <span id="modal-close" class="modal-close">&times;</span>
+      <h1 class="text-success" id="modal-header">Buy Order Placed Successfully</h1>
+      <p id="modal-descr">Successfully bought 10 BTC @ (2001 ZAR per BTC)</p>
+    </section>
+  </article>
+
 </body>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
+<script src="../js/chart.js"></script>
+<script src="../js/tradingview.js"></script>
 
 </html>
